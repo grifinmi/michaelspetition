@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('GetProject') {
             steps {
-                git 'https://github.com/grifinmi/michaelspetitions'
+                git 'https://github.com/grifinmi/michaelspetition'
             }
         }
         stage ('build') {
@@ -28,7 +28,7 @@ pipeline {
     post {
         success {
             archiveArtifacts allowEmptyArchive: true,
-                artifacts: '**/michaelspetitions*.jar' 
+                artifacts: '**/michaelspetition*.jar' 
         }
     }
 }
