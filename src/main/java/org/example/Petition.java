@@ -1,6 +1,6 @@
 package org.example;
 
-class Petition {
+public class Petition {
     /*Class to store a single petition*/
     private String  petitionTitle;
     private String petitionDetail;

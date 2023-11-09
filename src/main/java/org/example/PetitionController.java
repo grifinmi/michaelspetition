@@ -5,25 +5,21 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class PetitionController {
 
-    @RequestMapping("/EnterPetition")
-    public String EnterPetition() {
-        System.out.println("In submit in controller");
-        return "Submit Got to here";
+    @GetMapping("/EnterPetition")
+    public String sendForm(Petition petition) {
+
+        return petition.getPetitionDetail();
     }
 
-    @RequestMapping(value = "/EnterPetition", method = RequestMethod.POST)
-    public String submit(@Valid @ModelAttribute("petition") Petition petition,
-                         BindingResult result, ModelMap model) {
-        if (result.hasErrors()) {
-            return "error";
-        }
-        model.addAttribute("name", petition.getPetitionTitle());
-        model.addAttribute("contactNumber", petition.getPetitionTitle());
+    @PostMapping("/EnterPetition")
+    public String processForm(Petition petition) {
 
-        return "employeeView";
+        return "showMessage";
     }
 }
