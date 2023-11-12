@@ -14,12 +14,12 @@ public class PetitionController {
     @GetMapping("/EnterPetition")
     public String sendForm(Petition petition) {
 
-        return petition.getPetitionDetail();
+        return "EnterPetition";
     }
 
     @PostMapping("/EnterPetition")
     public String processForm(Petition petition) {
 
-        return "showMessage";
+        return "DisplayPetitions";
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang = "en">
+<html lang = "en">
 <head>
     <meta charset="UTF-8">
     <title>Enter Petition</title>
@@ -9,11 +9,11 @@
     Please Enter petition details
 </h1>
 <br>
-<form action = "#" th:action="@{/EnterPetition}" th:object="$petition}" method = "post">
-    <b>Petition Name : </b><input type = "Text" th:field="*{petitionTitle}"></input>
+<form method = "post">
+    <b>Petition Name : </b><input type = "text"></input>
 <br>
 <br>
-<b>Petition Details : </b><input type = "Text" th:field="*{petitionDetail}"> </input>
+<b>Petition Details : </b><input type = "text" > </input>
 <br>
 <br>
 <input type = submit value="Save Petition"></input>
