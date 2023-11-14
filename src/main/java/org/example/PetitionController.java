@@ -11,15 +11,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PetitionController {
 
-    @GetMapping("/EnterPetition")
-    public String sendForm(Petition petition) {
-
+    @GetMapping("/")
+    public String home() {
         return "EnterPetition";
     }
-
     @PostMapping("/EnterPetition")
     public String processForm(Petition petition) {
 
         return "DisplayPetitions";
     }
+    @GetMapping("/DisplayPetitions")
+    public String displayForm() {
+
+        return "DisplayPetitions";
+}
+
+
 }
