@@ -12,7 +12,7 @@ public class Petition {
     {
         return petitionTitle;
     }
-    private void setPetitionTitle(String petitionTitle){
+    public void setPetitionTitle(String petitionTitle){
         this.petitionTitle = petitionTitle;
     }
 

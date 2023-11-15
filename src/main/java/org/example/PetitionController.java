@@ -1,12 +1,9 @@
 package org.example;
-import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PetitionController {
@@ -19,8 +16,16 @@ public class PetitionController {
     public String enterPetition() {
         return "EnterPetition";
     }
+
     @PostMapping("/EnterPetition")
-    public String processForm(Petition petition) {
+    /* This code is executed when the user presses the submit button on the enterPetition page*/
+    public String processForm
+            (@RequestParam("petitionTitle") String pName,
+             @RequestParam("petitionDetail") String pDetail) {
+
+        Petition p = new Petition();
+        p.setPetitionDetail(pDetail);
+        p.setPetitionTitle(pName);
 
         return "DisplayPetitions";
     }

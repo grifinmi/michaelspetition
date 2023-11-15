@@ -10,13 +10,17 @@
 </h1>
 <br>
 <form action="/EnterPetition" method="post">
-    <b>Petition Name : </b><input type = "text"></input>
+    <b>Petition Name : </b><label>
+    <input type = "text" name="petitionTitle"></input>
+</label>
     <br>
     <br>
-    <b>Petition Details : </b><input type = "text" > </input>
+    <b>Petition Details : </b><label>
+    <input type = "text" name="petitionDetail"> </input>
+</label>
     <br>
     <br>
-    <input type = submit value="Save Petition"></input>
+    <button type ="submit" >Save Petition</button>
 </form>
 </body>
 </html>
