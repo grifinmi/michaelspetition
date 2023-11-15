@@ -15,6 +15,10 @@ public class PetitionController {
     public String home() {
         return "EnterPetition";
     }
+    @GetMapping("/EnterPetition")
+    public String enterPetition() {
+        return "EnterPetition";
+    }
     @PostMapping("/EnterPetition")
     public String processForm(Petition petition) {
 
