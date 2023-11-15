@@ -1,5 +1,11 @@
 package org.example;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope("Session")
+
 public class Petition {
     /*Class to store a single petition*/
     private String  petitionTitle;

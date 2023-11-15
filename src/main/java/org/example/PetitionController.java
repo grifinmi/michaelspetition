@@ -5,8 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
 @Controller
 public class PetitionController {
+    private ArrayList <Petition> pList = new ArrayList<Petition>();
+
 
     @GetMapping("/")
     public String home() {
@@ -26,7 +30,10 @@ public class PetitionController {
         Petition p = new Petition();
         p.setPetitionDetail(pDetail);
         p.setPetitionTitle(pName);
-
+        pList.add(p);
+        for (Petition pl : pList) {
+            System.out.println (pl.getPetitionDetail());
+        }
         return "DisplayPetitions";
     }
     @GetMapping("/DisplayPetitions")
