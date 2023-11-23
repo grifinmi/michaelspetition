@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+<h1>Petition search results</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Detail</th>
+    </tr>
+    </thead>
+    <tbody>
+
+        <td th:text="${found.petitionTitle}">Title</td>
+        <td th:text="${found.petitionDetail}">Detail</td>
+
+    </tr>
+    </tbody>
+</table>
+
+<a href="EnterPetition">Submit another petition</a>
+
+</body>
+</html>

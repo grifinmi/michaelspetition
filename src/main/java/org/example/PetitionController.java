@@ -11,20 +11,20 @@ import java.util.ArrayList;
 @Controller
 public class PetitionController {
     private ArrayList<Petition> pList = new ArrayList<Petition>();
-
+    private Petition pSearchResult = new Petition();
     @GetMapping("/")
     public String home() {
 
         /*This code is called on launch of localhost:8080/ */
         System.out.println("in GetMapping/");
-        return "EnterPetition";
+        return "enterpetition";
     }
 
     @GetMapping("/EnterPetition")
     public String enterPetition() {
         /*This code is called on launch of localhost:8080/EnterPetition */
         System.out.println("GetMapping/enterpetition");
-        return "EnterPetition";
+        return "enterpetition";
     }
 
     @PostMapping("/EnterPetition")
@@ -41,34 +41,32 @@ public class PetitionController {
         pList.add(p);
         model.addAttribute("Petitions", pList);
 
-        return "DisplayPetitions";
+        return "displaypetitions"; //goto displaypetitions html page
     }
 
     @GetMapping("/showSearchPetitionPage")
     public String showSearchPetitionPage(String search) {
         System.out.println("@GetMapping(\"/showSearchPetitionPage\")    ");
-        return "Searchpetition";
+        return "searchpetition";
     }
 
-    @PostMapping("/SearchPetition")
-    public String searchPetition(@RequestParam (name = "petitionSearch") String search) {
+    @PostMapping("/searchPetition")
+    public String searchPetition(@RequestParam (name = "petitionSearch") String search, Model model ){
 
         System.out.println("in postMapping/searchpetition");
-        Petition petition = new Petition();
+
 
         for (Petition p : pList) {
-            System.out.print("in for and string is >>>");
-            System.out.println(search);
             if (p.getPetitionDetail().contains(search)) {
-                petition = p;
+                pSearchResult = p;
                 break;
             } else if (p.getPetitionTitle().contains(search)) {
-                petition = p;
+                pSearchResult = p;
                 break;
             }
         }
-        System.out.println("out of  for");
-        System.out.println(petition.getPetitionDetail());
-        return "DisplayPetitions";
+        System.out.println(pSearchResult.getPetitionDetail());
+        model.addAttribute("found", pSearchResult);
+        return "searchresults";
     }
 }
