@@ -20,21 +20,21 @@ public class PetitionController {
         return "enterpetition";
     }
 
-    @GetMapping("/EnterPetition")
+    @GetMapping("/enterPetition")
     public String enterPetition() {
         /*This code is called on launch of localhost:8080/EnterPetition */
         System.out.println("GetMapping/enterpetition");
         return "enterpetition";
     }
 
-    @PostMapping("/EnterPetition")
+    @PostMapping("/enterPetition")
     /* This code is executed when the user presses the submit button on the enterPetition page*/
     public String processForm
             (@RequestParam("petitionTitle") String pName,
              @RequestParam("petitionDetail") String pDetail,
              Model model) {
         /*This code is called when submit button is pressed to enter petition */
-        System.out.println("@PostMapping(/EnterPetition)");
+        System.out.println("@PostMapping(/enterPetition)");
         Petition p = new Petition();
         p.setPetitionDetail(pDetail);
         p.setPetitionTitle(pName);
@@ -59,14 +59,16 @@ public class PetitionController {
         for (Petition p : pList) {
             if (p.getPetitionDetail().contains(search)) {
                 pSearchResult = p;
-                break;
+                model.addAttribute("found", pSearchResult);
+                return "searchresults";
             } else if (p.getPetitionTitle().contains(search)) {
                 pSearchResult = p;
-                break;
+                model.addAttribute("found", pSearchResult);
+                return "searchresults";
             }
         }
         System.out.println(pSearchResult.getPetitionDetail());
-        model.addAttribute("found", pSearchResult);
-        return "searchresults";
+
+        return "notfound";
     }
 }
