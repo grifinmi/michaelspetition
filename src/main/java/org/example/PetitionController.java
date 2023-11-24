@@ -68,9 +68,7 @@ public class PetitionController {
         System.out.println("in getMapping/signpetition");
 
         title = title.substring(7);
-        System.out.print("title is>>");System.out.println(title);
         detail = detail.substring(8,detail.length()-1);
-        System.out.print("detail is>>");System.out.println(detail);
 
         //System.out.println(title.substring(title.indexOf("detail"),title.length()-2));
         model.addAttribute("petitionTitle", title);;
@@ -102,19 +100,14 @@ public class PetitionController {
     public String searchPetition(@RequestParam (name = "petitionSearch") String search, Model model ){
 
         System.out.println("in postMapping/searchpetition");
-        System.out.print("Search is >>");
-        System.out.println(search);
-        System.out.println("<<Search is >>>>");
         for (Petition p : pList) {
-            System.out.println("In for");
+
             if (p.getPetitionDetail().contains(search)) {
                 pSearchResult = p;
                 model.addAttribute("found", pSearchResult);
-                System.out.println("In first if");
                 return "searchresults";
             } else if (p.getPetitionName().contains(search)) {
                 pSearchResult = p;
-                System.out.println("In second if");
                 model.addAttribute("found", pSearchResult);
                 return "searchresults";
             }
