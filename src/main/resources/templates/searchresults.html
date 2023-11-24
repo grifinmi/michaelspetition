@@ -26,26 +26,24 @@
     </style>
 </head>
 <body>
-<h1>Petition search results</h1>
-<table>
-    <colgroup>
-        <col style="width: 150px;">
-        <col style="width: 200px;">
+    <h1>Petition search results</h1>
+    <table>
+        <colgroup>
+            <col style="width: 150px;">
+            <col style="width: 200px;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Detail</th>
+            </tr>
+            </thead>
+        <tbody>
+            <td th:text="${found.petitionName}">Title</td>
+            <td th:text="${found.petitionDetail}">Detail</td>
+        </tbody>
+    </table>
 
-    </colgroup>
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Detail</th>
-    </tr>
-    </thead>
-    <tbody>
-    <td th:text="${found.petitionName}">Title</td>
-    <td th:text="${found.petitionDetail}">Detail</td>
-    </tbody>
-</table>
-
-<a href="enterPetition">Submit another petition</a>
-
+    <a href="enterPetition">Submit another petition</a>
 </body>
 </html>
