@@ -27,44 +27,36 @@
     </style>
 </head>
 <body>
-<H1>
-    You can sign for your petition here
-</h1>
-<br>
-
-<form action="/signPetition" method="post">
-    <input type="hidden" name="petitionTitle" th:value="${petitionTitle}" />
-
-    <table>
-        <colgroup>
-            <col style="width: 150px;">
-            <col style="width: 200px;">
-        </colgroup>
-        <thead>
-        <tr>
-            <th>Petition</th>
-            <th>Detail</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td th:text="${petitionTitle}"></td>
-            <td th:text="${petitionDetail}"></td>
-        </tr>
-        </tbody>
-    </table>
-
+    <H1>
+        You can sign for your petition here
+    </h1>
     <br>
 
-    <label>
-        <b>Signature </b>
-    </label>
-    <input type="text" name="petitionSignature">
-
-    <br>
-    <br>
-
-    <button type="submit">Sign Petition</button>
-</form>
-
-
+    <form action="/signPetition" method="post">
+        <input type="hidden" name="petitionTitle" th:value="${petitionTitle}" />
+        <table>
+            <colgroup>
+                <col style="width: 150px;">
+                <col style="width: 200px;">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>Petition</th>
+                <th>Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${petitionTitle}"></td>
+                <td th:text="${petitionDetail}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+            <label><b>Signature </b></label>
+        <input type="text" name="petitionSignature">
+        <br>
+        <br>
+        <button type="submit">Sign Petition</button>
+    </form>
+</body>
