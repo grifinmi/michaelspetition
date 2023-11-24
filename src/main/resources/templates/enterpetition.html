@@ -8,21 +8,31 @@
 <H1>
     Please Enter petition details
 </h1>
-<br>
+
 <form action="/enterPetition" method="post">
-    <b>Petition Name : </b><label>
-    <input type = "text" name="petitionTitle"></input>
+    <h3>Petition Name</h3><label>
+    <input type = "text" size = "50" name="petitionTitle"></input>
 </label>
     <br>
     <br>
-    <b>Petition Details : </b><label>
-    <input type = "text" name="petitionDetail"> </input>
+    <h3>Petition Details</h3><label>
+
+    <textarea name="petitionDetail" rows = "10" cols = "150"> </textarea>
 </label>
     <br>
     <br>
     <button type ="submit" >Save Petition</button>
 </form>
 
-<a href="/showSearchPetitionPage">Search petition</a>
+<table>
+    <tbody>
+    <tr >
+        <td ><a href="/showSearchPetitionPage">Search petition</a></td>
+        <td ><a href="/displayPetitionPage">Display petitions</a></td>
+
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>

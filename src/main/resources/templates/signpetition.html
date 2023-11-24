@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>You can sign for your petition here</title>
+</head>
+<body>
+<H1>
+    You can sign for your petition here
+</h1>
+<br>
+<form action="/signPetition" method="post">
+    <b>Petition Name : </b><label>
+    <h2 th:text="'Signing petition: ' + ${petitionTitle}"></h2></input>
+</label>
+    <br>
+    <br>
+    <b>Signature </b><label>
+    <input type = "text" name="petitionSignature"> </input>
+</label>
+    <br>
+    <br>
+    <button type ="submit" >Sign Petition</button>
+</form>
+
+<table>
+    <tbody>
+    <tr >
+        <td ><a href="/showSearchPetitionPage">Search petition</a></td>
+        <td ><a href="/displayPetitionPage">Display petitions</a></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
