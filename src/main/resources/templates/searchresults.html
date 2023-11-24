@@ -3,11 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Search Results</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          width:500px
+        }
+        th{
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+          word-wrap: break-word;
+          max-width:200px
+        }
+        td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+          word-wrap: break-word;
+          max-width:400px
+        }
+
+    </style>
 </head>
 <body>
 <h1>Petition search results</h1>
-
 <table>
+    <colgroup>
+        <col style="width: 150px;">
+        <col style="width: 200px;">
+
+    </colgroup>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Detail</th>
+    </tr>
+    </thead>
+    <tbody>
+    <td th:text="${found.petitionTitle}">Title</td>
+    <td th:text="${found.petitionDetail}">Detail</td>
+    </tbody>
+</table>
+<!---<table>
     <thead>
     <tr>
         <th>Title</th>
@@ -21,7 +58,7 @@
 
     </tr>
     </tbody>
-</table>
+</table>-->
 
 <a href="enterPetition">Submit another petition</a>
 
