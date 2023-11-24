@@ -61,12 +61,19 @@ public class PetitionController {
         model.addAttribute("pList", pList);
         return "displaypetitions";
     }
-    @GetMapping("/signpetition{title}")
-    public String signPetition(@PathVariable("title") String title, Model model ) {
+    @GetMapping("/signpetition{title}/{detail}")
+    public String signPetition(@PathVariable("title") String title,@PathVariable("detail") String detail, Model model ) {
 
         System.out.println("in getMapping/signpetition");
-        model.addAttribute("petitionTitle", title.substring(7,title.length()-2));;
-        System.out.println(title);
+
+        title = title.substring(7);
+        System.out.print("title is>>");System.out.println(title);
+        detail = detail.substring(8,detail.length()-1);
+        System.out.print("detail is>>");System.out.println(detail);
+
+        //System.out.println(title.substring(title.indexOf("detail"),title.length()-2));
+        model.addAttribute("petitionTitle", title);;
+        model.addAttribute("petitionDetail", detail);;
         return "signpetition";
     }
     @PostMapping("/signPetition")

@@ -4,34 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <title>You can sign for your petition here</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          width:500px
+        }
+        th{
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+          word-wrap: break-word;
+          max-width:200px
+        }
+        td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+          word-wrap: break-word;
+          max-width:400px
+        }
+
+    </style>
 </head>
 <body>
 <H1>
     You can sign for your petition here
 </h1>
 <br>
+
 <form action="/signPetition" method="post">
-    <b>Petition Name : </b><label>
-    <h2 th:text="'Signing petition: ' + ${petitionTitle}"></h2></input>
-</label>
+
+    <table>
+        <colgroup>
+            <col style="width: 150px;">
+            <col style="width: 200px;">
+
+        </colgroup>
+        <thead>
+        <tr>
+            <th>Petition</th>
+            <th>Detail</th>
+        </tr>
+        </thead>
+        <tr>
+            <td th:text=" ${petitionTitle}"></td>
+            <td th:text=" ${petitionDetail}"></td>
+
+        </tr>
+            </table>
+
+        <br>
+        <label>
+            <b>Signature </b>
+        </label>
+        <label>
+            <input type = "text" name="petitionSignature"> </input>
+        </label>
+
     <br>
-    <br>
-    <b>Signature </b><label>
-    <input type = "text" name="petitionSignature"> </input>
-</label>
-    <br>
-    <br>
+            <br>
     <button type ="submit" >Sign Petition</button>
 </form>
 
-<table>
-    <tbody>
-    <tr >
-        <td ><a href="/showSearchPetitionPage">Search petition</a></td>
-        <td ><a href="/displayPetitionPage">Display petitions</a></td>
-
-    </tr>
-    </tbody>
-</table>
-</body>
-</html>

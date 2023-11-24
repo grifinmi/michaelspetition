@@ -40,14 +40,14 @@
         <th>Detail</th>
     </tr>
     </thead>
-    <body>
+    <tbody>
     <tr th:each="petition : ${pList}">
         <td>
-            <a th:href="@{'/signpetition(title=' + ${petition.petitionTitle} + ')'}" th:text="${petition.petitionTitle}"></a>
+            <a th:href="@{'/signpetition(title=' + ${petition.petitionTitle} + '/' +'(detail=' + ${petition.petitionDetail}+')'}" th:text="${petition.petitionTitle}"></a>
         </td>
         <td th:text="${petition.petitionDetail}">Detail</td>
 
-    </body>
+    </tbody>
 </table>
 <br>
 <a href="enterPetition">Submit another petition</a>
