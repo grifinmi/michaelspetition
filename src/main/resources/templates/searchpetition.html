@@ -9,16 +9,28 @@
     Please enter the name of the petition you wish to search for
 </h1>
 <br>
+<script>
+    function notBlank() {
+      var searchInput = document.getElementById('petitionSearch');
+      var searchButton = document.getElementById('searchButton');
 
+
+      if (searchInput.value.trim() !== '') {
+        searchButton.disabled = false; // Enable the search button
+      } else {
+        searchButton.disabled = true; // Disable the search button
+      }
+    }
+</script>
 <form action="/searchPetition" method="post">
     <b>Petition Name : </b><label>
-    <input type = "text" size = "50" name="petitionSearch"></input>
+    <input type = "text" size = "50" name = "petitionSearch"  id = "petitionSearch" oninput="notBlank()"></input>
 </label>
     <br>
 </label>
     <br>
     <br>
-    <button type ="submit" >Search Petition</button>
+    <button type ="submit"  id = "searchButton" disabled>Search Petition</button>
 </form>
 </body>
 </html>

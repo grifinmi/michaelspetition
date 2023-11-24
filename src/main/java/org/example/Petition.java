@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Petition {
     /*Class to store a single petition*/
-    private String  petitionTitle;
+    private String  petitionName;
     private String petitionDetail;
     private int petitionId;
     private ArrayList<String> signatureList = new ArrayList<>();
@@ -23,16 +23,16 @@ public class Petition {
     }
 
     Petition(){
-        petitionTitle = null;
+        petitionName = null;
         petitionDetail = null;
         petitionId = 0;
     }
-    public String getPetitionTitle()
+    public String getPetitionName()
     {
-        return petitionTitle;
+        return petitionName;
     }
-    public void setPetitionTitle(String petitionTitle){
-        this.petitionTitle = petitionTitle;
+    public void setPetitionName(String petitionName){
+        this.petitionName = petitionName;
     }
 
     public String getPetitionDetail() {

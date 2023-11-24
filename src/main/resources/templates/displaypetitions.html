@@ -43,7 +43,7 @@
     <tbody>
     <tr th:each="petition : ${pList}">
         <td>
-            <a th:href="@{'/signpetition(title=' + ${petition.petitionTitle} + '/' +'(detail=' + ${petition.petitionDetail}+')'}" th:text="${petition.petitionTitle}"></a>
+            <a th:href="@{'/signpetition(title=' + ${petition.petitionName} + '/' +'(detail=' + ${petition.petitionDetail}+')'}" th:text="${petition.petitionName}"></a>
         </td>
         <td th:text="${petition.petitionDetail}">Detail</td>
 

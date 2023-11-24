@@ -42,7 +42,7 @@ public class PetitionController {
         System.out.println("@PostMapping(/enterPetition)");
         Petition p = new Petition();
         p.setPetitionDetail(pDetail);
-        p.setPetitionTitle(pName);
+        p.setPetitionName(pName);
         pList.add(p);
         petitionId++;
         model.addAttribute("pList", pList);
@@ -58,7 +58,7 @@ public class PetitionController {
     @GetMapping("/displayPetitionPage")
     public String showDisplayPetitionPage(String search,Model model) {
         System.out.println("@GetMapping(\"/displayPetitionPage\")    ");
-        System.out.println(((String)pList.get(0).getPetitionTitle()));
+        System.out.println(((String)pList.get(0).getPetitionName()));
         model.addAttribute("pList", pList);
         return "displaypetitions";
     }
@@ -85,8 +85,8 @@ public class PetitionController {
         System.out.println("@PostMapping(/signPetition)");
 
         for (Petition p : pList) {
-            System.out.println(p.getPetitionTitle());
-            if (p.getPetitionTitle().contains(pName)) {
+            System.out.println(p.getPetitionName());
+            if (p.getPetitionName().contains(pName)) {
                 pSearchResult = p;
                 System.out.println("Found Petition");
                 p.setSignatureList(pSignature);
@@ -102,15 +102,19 @@ public class PetitionController {
     public String searchPetition(@RequestParam (name = "petitionSearch") String search, Model model ){
 
         System.out.println("in postMapping/searchpetition");
-
-
+        System.out.print("Search is >>");
+        System.out.println(search);
+        System.out.println("<<Search is >>>>");
         for (Petition p : pList) {
+            System.out.println("In for");
             if (p.getPetitionDetail().contains(search)) {
                 pSearchResult = p;
                 model.addAttribute("found", pSearchResult);
+                System.out.println("In first if");
                 return "searchresults";
-            } else if (p.getPetitionTitle().contains(search)) {
+            } else if (p.getPetitionName().contains(search)) {
                 pSearchResult = p;
+                System.out.println("In second if");
                 model.addAttribute("found", pSearchResult);
                 return "searchresults";
             }
