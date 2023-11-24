@@ -1,4 +1,5 @@
 package org.example;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -77,11 +78,26 @@ public class PetitionController {
         return "signpetition";
     }
     @PostMapping("/signPetition")
-    public String signPetition()
-    {
+    public String recordSignature(HttpServletRequest request, Model model) {
+        String pName = request.getParameter("petitionTitle");
+        String pSignature = request.getParameter("petitionSignature");
 
+        System.out.println("@PostMapping(/signPetition)");
+
+        for (Petition p : pList) {
+            System.out.println(p.getPetitionTitle());
+            if (p.getPetitionTitle().contains(pName)) {
+                pSearchResult = p;
+                System.out.println("Found Petition");
+                p.setSignatureList(pSignature);
+
+            }
+            else System.out.println("Petition Not found");
+
+        }
         return "enterpetition";
     }
+
     @PostMapping("/searchPetition")
     public String searchPetition(@RequestParam (name = "petitionSearch") String search, Model model ){
 
