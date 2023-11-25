@@ -1,5 +1,6 @@
 
 This is a simple application that allows a user to 
+
   a. create a petition
   b. search for a petition
   c. sign a petition
@@ -13,6 +14,6 @@ Importantly, there is no permanent storage of the data. i.e. when the applicatio
 The application can be built using jenkins and will create a WAR file. Future enhancements will enable docker implementation
 
 It was created in intellij and is built using maven. 
-It is built uses jdk 17 and uses both springboot and thymeleaf 
+It is built with jdk 17 and uses both springboot and thymeleaf 
 
 
